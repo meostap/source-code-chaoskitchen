@@ -210,7 +210,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8798266884959711708, guid: 8a20a5b683608b44e9f941814f7e2d4b, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 3.4
+      value: 3.43
       objectReference: {fileID: 0}
     - target: {fileID: 8798266884959711708, guid: 8a20a5b683608b44e9f941814f7e2d4b, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1416,7 +1416,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3102523346198547436, guid: c1e93866ddf65cc46ace8c7af071e303, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 7.51
+      value: 7.5
       objectReference: {fileID: 0}
     - target: {fileID: 3102523346198547436, guid: c1e93866ddf65cc46ace8c7af071e303, type: 3}
       propertyPath: m_LocalPosition.y
@@ -2127,7 +2127,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4248136374683786367, guid: 1f3e3abc049be8f42b0b9be7e070a3f8, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 3.4
+      value: 3.43
       objectReference: {fileID: 0}
     - target: {fileID: 4248136374683786367, guid: 1f3e3abc049be8f42b0b9be7e070a3f8, type: 3}
       propertyPath: m_LocalRotation.w
@@ -2611,6 +2611,7 @@ GameObject:
   - component: {fileID: 1454303045}
   - component: {fileID: 1454303044}
   - component: {fileID: 1454303046}
+  - component: {fileID: 1454303047}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -2674,6 +2675,18 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1454303047
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1454303043}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 29af0f98949ea9f4aba6b0db124183e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1519772002
 GameObject:
   m_ObjectHideFlags: 0
@@ -2890,7 +2903,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3069364927850027782, guid: aac3738740475ff4f8ab9eab873bcecc, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 3.4293277
+      value: 3.43
       objectReference: {fileID: 0}
     - target: {fileID: 3069364927850027782, guid: aac3738740475ff4f8ab9eab873bcecc, type: 3}
       propertyPath: m_LocalRotation.w

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class StoneCounterVisual : MonoBehaviour
+public class StoveCounterVisual : MonoBehaviour
 {
     [SerializeField] private StoveCounter stoneCounter;
     [SerializeField] private GameObject stoveOnGameObject;
