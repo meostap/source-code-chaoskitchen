@@ -135,7 +135,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8537273217655179204}
-  - component: {fileID: -2151930031391617381}
+  - component: {fileID: 5278382009859951968}
   m_Layer: 0
   m_Name: Plate
   m_TagString: Untagged
@@ -161,7 +161,7 @@ Transform:
   - {fileID: 5566621877400861626}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &-2151930031391617381
+--- !u!114 &5278382009859951968
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -170,7 +170,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 4043493887111432457}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b65ee594d72b902428d91d95a536008b, type: 3}
+  m_Script: {fileID: 11500000, guid: 1c5c2b978f75abf459b90f9ec905ffda, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   kitchenObjectSo: {fileID: 11400000, guid: 6e7c7cd517f3b0d4f8684bfb215e7fa1, type: 2}
@@ -179,7 +179,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 92087a65ea92d804d8d7763c274664e8, type: 2}
   - {fileID: 11400000, guid: 17236752fa31d39439c259034bb62ebb, type: 2}
   - {fileID: 11400000, guid: dad665d4d79e4e74183fe48a8ab059a4, type: 2}
-  - {fileID: 11400000, guid: 94dc57eee3cccfc47aa2b01bc4371335, type: 2}
   - {fileID: 11400000, guid: daff92767a3bde345a31636166f88b7e, type: 2}
 --- !u!1 &5731206429235843116
 GameObject:
@@ -343,7 +342,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 0
+  m_PresetInfoIsWorld: 1
 --- !u!114 &1354972911631410871
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -397,7 +396,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df6f76d8f11cf244a90dd0434169a07c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  platekitchenObject: {fileID: -2151930031391617381}
+  platekitchenObject: {fileID: 5278382009859951968}
   iconTemplate: {fileID: 3822400953904992885}
 --- !u!114 &5036660759143293213
 MonoBehaviour:
@@ -478,14 +477,14 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 408889407006782757, guid: 10e39c981f2de6441b54efde32ced8f0, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 3620146886590355874}
+      addedObject: {fileID: 3179383008341925126}
   m_SourcePrefab: {fileID: 100100000, guid: 10e39c981f2de6441b54efde32ced8f0, type: 3}
 --- !u!1 &1128364425066895364 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 408889407006782757, guid: 10e39c981f2de6441b54efde32ced8f0, type: 3}
   m_PrefabInstance: {fileID: 721820349377015073}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &3620146886590355874
+--- !u!114 &3179383008341925126
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -494,11 +493,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1128364425066895364}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0ccb85003d25bef4682b366c101c34c1, type: 3}
+  m_Script: {fileID: 11500000, guid: f763d884c0d512c4293a210bac836c4b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  plateKitchenObject: {fileID: -2151930031391617381}
+  plateKitchenObject: {fileID: 5278382009859951968}
   kitchenObjectSOGameObjectsList:
+  - kitchenObjectSo: {fileID: 11400000, guid: 790c87a49b33c364ba2f6396b73bde09, type: 2}
+    gameObject: {fileID: 4270202430375608882}
   - kitchenObjectSo: {fileID: 11400000, guid: dad665d4d79e4e74183fe48a8ab059a4, type: 2}
     gameObject: {fileID: 4270202430096313084}
   - kitchenObjectSo: {fileID: 11400000, guid: daff92767a3bde345a31636166f88b7e, type: 2}
@@ -509,8 +510,6 @@ MonoBehaviour:
     gameObject: {fileID: 4270202430109326512}
   - kitchenObjectSo: {fileID: 11400000, guid: 94dc57eee3cccfc47aa2b01bc4371335, type: 2}
     gameObject: {fileID: 4042468706231366816}
-  - kitchenObjectSo: {fileID: 11400000, guid: 790c87a49b33c364ba2f6396b73bde09, type: 2}
-    gameObject: {fileID: 4270202430375608882}
 --- !u!4 &1128364425066895365 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 408889407006782756, guid: 10e39c981f2de6441b54efde32ced8f0, type: 3}

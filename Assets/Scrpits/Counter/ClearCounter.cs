@@ -8,13 +8,13 @@ public class ClearCounter : BaseCounter
    
 
    
-    public override void  Interact(Player player)
+    public override void Interact(IKitchenObjectParent kitchenObjectParent)
     {
         if (!HasKitchenObject())
         {//no kitchenObject
-            if (player.HasKitchenObject())
+            if (kitchenObjectParent.HasKitchenObject())
             {//player carring sthing
-                player.GetKitchenObject().SetKitchenObjectParent(this);
+                kitchenObjectParent.GetKitchenObject().SetKitchenObjectParent(this);
             }
             else
             {
@@ -24,12 +24,12 @@ public class ClearCounter : BaseCounter
         }
         else {
             // There is a KitchenObject here
-            if (player.HasKitchenObject()) {
+            if (kitchenObjectParent.HasKitchenObject()) {
                 //player carry sthong
-                if (player.GetKitchenObject().TryGetPlate(out PlateKitchenObject plateKitchenObject ))
+                if (kitchenObjectParent.GetKitchenObject().TryGetPlate(out PlateKitchenObject plateKitchenObject ))
                 {//player holding a plate
                    
-                  if(plateKitchenObject.TryAddIgredient(GetKitchenObject().GetKitchenObjectSo()))
+                  if(plateKitchenObject.TryAddIngredient(GetKitchenObject().GetKitchenObjectSo()))
                     {
                         GetKitchenObject().DestroySelf();
                     }
@@ -39,16 +39,16 @@ public class ClearCounter : BaseCounter
                 {//Player carring sthing but not a plate
                     if (GetKitchenObject().TryGetPlate(out  plateKitchenObject))
                     {//Couter holding plate
-                        if (plateKitchenObject.TryAddIgredient(player.GetKitchenObject().GetKitchenObjectSo()))
+                        if (plateKitchenObject.TryAddIngredient(kitchenObjectParent.GetKitchenObject().GetKitchenObjectSo()))
                         {
-                            player.GetKitchenObject().DestroySelf();
+                            kitchenObjectParent.GetKitchenObject().DestroySelf();
                         }
                     }
                 }
             }
             else
             {//not carrying anything
-                GetKitchenObject().SetKitchenObjectParent(player);
+                GetKitchenObject().SetKitchenObjectParent(kitchenObjectParent);
             }
         }
     }

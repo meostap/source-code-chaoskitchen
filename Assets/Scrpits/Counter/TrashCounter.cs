@@ -7,13 +7,19 @@ public class TrashCounter : BaseCounter
 {
     public static event EventHandler OnAnyObjectTrashed;
 
-    public override void Interact(Player player)
+    new public static void ResetStaticData()
     {
-       if (player.HasKitchenObject())
+        OnAnyObjectTrashed = null;
+    }
+    public override void Interact(IKitchenObjectParent kitchenObjectParent)
+    {
+        if (kitchenObjectParent.HasKitchenObject())
         {
-            player.GetKitchenObject().DestroySelf();
+            kitchenObjectParent.GetKitchenObject().DestroySelf();
 
-            OnAnyObjectTrashed?.Invoke(this,EventArgs.Empty);
+            OnAnyObjectTrashed?.Invoke(this, EventArgs.Empty);
         }
+        
+       
     }
 }

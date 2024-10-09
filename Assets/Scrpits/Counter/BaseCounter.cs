@@ -1,20 +1,25 @@
-using System;
+﻿using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BaseCounter : MonoBehaviour, IKitchenObjectParent
+public  class BaseCounter : MonoBehaviour, IKitchenObjectParent
 {
     public static event EventHandler OnAnyObjectPlayHere;
     [SerializeField] private Transform couterTopPoint;
+    [SerializeField] private KitchenObjectSo kitchenObjectSO;
 
     private KitchenObject kitchenObject;
-    public virtual void Interact(Player player)
+    public virtual void Interact(IKitchenObjectParent kitchenObjectParent)
     {
         Debug.Log("BaseCounter.Interact();");
     }
-    
-        public virtual void InteractAlternate(Player player)
+    public static void ResetStaticData()
+    {
+        OnAnyObjectPlayHere = null;
+    }
+
+    public virtual void InteractAlternate(Player player)
     {
         //Debug.Log("BaseCounter.InteractAlternate();");
     }
@@ -31,6 +36,7 @@ public class BaseCounter : MonoBehaviour, IKitchenObjectParent
             OnAnyObjectPlayHere?.Invoke(this, EventArgs.Empty);
         }
     }
+   
     public KitchenObject GetKitchenObject()
     {
         return kitchenObject;
@@ -40,4 +46,14 @@ public class BaseCounter : MonoBehaviour, IKitchenObjectParent
         kitchenObject = null;
     }
     public bool HasKitchenObject() { return kitchenObject != null; }
+
+  
+    /*public override void Interact(IKitchenObjectParent kitchenObjectParent)
+    {
+        if (!kitchenObjectParent.HasKitchenObject())
+        {
+            // Tạo vật phẩm và đặt vào tay NPC hoặc người chơi
+            KitchenObject.SpawKitchenObject(kitchenObjectSO, kitchenObjectParent);
+        }
+    }*/
 }

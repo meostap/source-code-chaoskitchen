@@ -3,7 +3,10 @@ guid: e1ec19f0076e2564d8015f0e329cdf1e
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - goldBarSlider: {instanceID: 0}
+  - nextLevelUIManager: {instanceID: 0}
+  - recipeListSO: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

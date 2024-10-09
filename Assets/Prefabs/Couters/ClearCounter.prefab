@@ -302,4 +302,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   couterTopPoint: {fileID: 4580397657496105547}
+  kitchenObjectSO: {fileID: 0}
   kitchenObjectSo: {fileID: 11400000, guid: 1a97b1aec1f4f284e90ff900cb0f419b, type: 2}

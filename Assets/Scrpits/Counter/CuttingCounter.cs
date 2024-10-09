@@ -11,18 +11,24 @@ public class CuttingCounter : BaseCounter ,IHasProgress
     public static event EventHandler OnAnyCut;
    
     public event EventHandler OnCut;
+    
+   new  public static void ResetStaticData()
+    {
+        OnAnyCut = null;
+    }
+
 
     [SerializeField] private CuttingRecipeSO[] cuttingRecipeSOArray;
 
     private int cuttingProgrees;    
-    public override void Interact(Player player)
+    public override void Interact(IKitchenObjectParent kitchenObjectParent)
     {
         if (!HasKitchenObject())
         {//no kitchenObject
-            if (player.HasKitchenObject())
+            if (kitchenObjectParent.HasKitchenObject())
             {//player carring sthing
-                if (HasRecipeWithInput(player.GetKitchenObject().GetKitchenObjectSo())) { 
-                player.GetKitchenObject().SetKitchenObjectParent(this);
+                if (HasRecipeWithInput(kitchenObjectParent.GetKitchenObject().GetKitchenObjectSo())) { 
+                kitchenObjectParent.GetKitchenObject().SetKitchenObjectParent(this);
                     cuttingProgrees = 0;
 
                     CuttingRecipeSO cuttingRecipeSO = GetCuttingRecipeSOWithInput(GetKitchenObject().GetKitchenObjectSo());
@@ -43,13 +49,13 @@ public class CuttingCounter : BaseCounter ,IHasProgress
         else
         {
             // There is a KitchenObject here
-            if (player.HasKitchenObject())
+            if (kitchenObjectParent.HasKitchenObject())
             {
                 //player carry sthing
-                if (player.GetKitchenObject().TryGetPlate(out PlateKitchenObject plateKitchenObject))
+                if (kitchenObjectParent.GetKitchenObject().TryGetPlate(out PlateKitchenObject plateKitchenObject))
                 {//player holding a plate
 
-                    if (plateKitchenObject.TryAddIgredient(GetKitchenObject().GetKitchenObjectSo()))
+                    if (plateKitchenObject.TryAddIngredient(GetKitchenObject().GetKitchenObjectSo()))
                     {
                         GetKitchenObject().DestroySelf();
                     }
@@ -58,7 +64,7 @@ public class CuttingCounter : BaseCounter ,IHasProgress
             }
             else
             {//not carrying anything
-                GetKitchenObject().SetKitchenObjectParent(player);
+                GetKitchenObject().SetKitchenObjectParent(kitchenObjectParent);
             }
         }
     }
@@ -69,6 +75,7 @@ public class CuttingCounter : BaseCounter ,IHasProgress
             //have sthing on couter and it can be cut
             cuttingProgrees++;
             OnCut?.Invoke(this,EventArgs.Empty);
+            
             OnAnyCut?.Invoke(this, EventArgs.Empty);
 
             CuttingRecipeSO cuttingRecipeSO = GetCuttingRecipeSOWithInput(GetKitchenObject().GetKitchenObjectSo());

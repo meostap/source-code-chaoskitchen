@@ -99,16 +99,16 @@ public class StoveCounter : BaseCounter,IHasProgress
             Debug.Log(fryingTimer);
         }
     }
-    public override void Interact(Player player)
+    public override void Interact(IKitchenObjectParent kitchenObjectParent)
     {
         if (!HasKitchenObject())
         {//no kitchenObject
-            if (player.HasKitchenObject())
+            if (kitchenObjectParent.HasKitchenObject())
             {//player carring sthing
-                if (HasRecipeWithInput(player.GetKitchenObject().GetKitchenObjectSo()))
+                if (HasRecipeWithInput( kitchenObjectParent.GetKitchenObject().GetKitchenObjectSo()))
                 {
                     //has sthing canbe fried
-                    player.GetKitchenObject().SetKitchenObjectParent(this);
+                    kitchenObjectParent.GetKitchenObject().SetKitchenObjectParent(this);
 
                     fryingRecipeSO = GetFryingRecipeSOWithInput(GetKitchenObject().GetKitchenObjectSo());
                     state = State.Frying;
@@ -134,13 +134,13 @@ public class StoveCounter : BaseCounter,IHasProgress
         else
         {
             // There is a KitchenObject here
-            if (player.HasKitchenObject())
+            if (kitchenObjectParent.HasKitchenObject())
             {
                 //player carry sthong
-                if (player.GetKitchenObject().TryGetPlate(out PlateKitchenObject plateKitchenObject))
+                if (kitchenObjectParent.GetKitchenObject().TryGetPlate(out PlateKitchenObject plateKitchenObject))
                 {//player holding a plate
 
-                    if (plateKitchenObject.TryAddIgredient(GetKitchenObject().GetKitchenObjectSo()))
+                    if (plateKitchenObject.TryAddIngredient(GetKitchenObject().GetKitchenObjectSo()))
                     {
                         GetKitchenObject().DestroySelf();
 
@@ -161,7 +161,7 @@ public class StoveCounter : BaseCounter,IHasProgress
             }
             else
             {//not carrying anything
-                GetKitchenObject().SetKitchenObjectParent(player);
+                GetKitchenObject().SetKitchenObjectParent(kitchenObjectParent);
 
 
                 state = State.Idle;
@@ -218,5 +218,10 @@ public class StoveCounter : BaseCounter,IHasProgress
             }
         }
         return null;
+    }
+    public bool IsFried()
+    {
+        return state== State.Fried;
+    
     }
 }

@@ -55,6 +55,7 @@ public class KitchenObject : MonoBehaviour
 
     public static KitchenObject SpawKitchenObject(KitchenObjectSo kitchenObjectSo,IKitchenObjectParent kitchenObjectParent)
     {
+        Debug.Log("spaw");
         Transform kitchenObjectTranform = Instantiate(kitchenObjectSo.prefab);
         KitchenObject kitchenObject = kitchenObjectTranform.GetComponent<KitchenObject>();
         kitchenObject.SetKitchenObjectParent(kitchenObjectParent);

@@ -10,15 +10,15 @@ public class DeliveryCounter : BaseCounter
     {
         Instance = this;
     }
-    public override void Interact(Player player)
+    public override void Interact(IKitchenObjectParent kitchenObjectParent)
     {
-        if (player.HasKitchenObject())
+        if (kitchenObjectParent.HasKitchenObject())
         {
-            if (player.GetKitchenObject().TryGetPlate(out PlateKitchenObject plateKitchenObject))
+            if (kitchenObjectParent.GetKitchenObject().TryGetPlate(out PlateKitchenObject plateKitchenObject))
             {//only accepts Plates
 
                 DeliveryManager.Instance.DeliverRecipe(plateKitchenObject);
-                player.GetKitchenObject().DestroySelf();
+                kitchenObjectParent.GetKitchenObject().DestroySelf();
             }
         }
         

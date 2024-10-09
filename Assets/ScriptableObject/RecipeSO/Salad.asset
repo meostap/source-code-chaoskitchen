@@ -16,3 +16,4 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 92087a65ea92d804d8d7763c274664e8, type: 2}
   - {fileID: 11400000, guid: daff92767a3bde345a31636166f88b7e, type: 2}
   recipeName: Salad
+  goldReward: 2

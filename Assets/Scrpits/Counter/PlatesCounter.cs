@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -20,7 +20,7 @@ public class PlatesCounter : BaseCounter
         spwanPlateTimer += Time.deltaTime;
         if (spwanPlateTimer> spwanPlateTimerMax)
         {
-            if ((platesSpawnedAmount < platesSpawnedAmountMax)) {
+            if ((KitchenGameManager.Instance.IsGamePlaying() && platesSpawnedAmount < platesSpawnedAmountMax)) {
                 platesSpawnedAmount++;  
 
                 OnPlateSpawned?.Invoke(this,  EventArgs.Empty);
@@ -32,27 +32,21 @@ public class PlatesCounter : BaseCounter
         }    
     }
 
-    public override void Interact(Player player)
+    public override void Interact(IKitchenObjectParent kitchenObjectParent)
     {
-        if (!player.HasKitchenObject())
-        { // player is empty hand
-            if (platesSpawnedAmount>0)
-            {//at least on plate here
+        if (!kitchenObjectParent.HasKitchenObject())
+        {
+            // Nếu NPC hoặc Player đang không cầm vật phẩm nào
+            if (platesSpawnedAmount > 0)
+            {
+                // Nếu có ít nhất một cái đĩa ở đây
                 platesSpawnedAmount--;
 
-                KitchenObject.SpawKitchenObject(plateKitchenObjectSO,player);
+                // Spawn đĩa và gán nó cho NPC hoặc Player
+                KitchenObject.SpawKitchenObject(plateKitchenObjectSO, kitchenObjectParent);
 
                 OnPlateRemoved?.Invoke(this, EventArgs.Empty);
             }
         }
     }
-
-
-
-        
-
-
-
-
-
 }
