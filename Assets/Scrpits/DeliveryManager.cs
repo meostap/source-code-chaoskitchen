@@ -15,7 +15,8 @@ public class DeliveryManager : MonoBehaviour
     private bool isFirstOrderSpawned = false;
 
     private int playerGold = 0; // Vàng của người chơi
-    private int goldToNextLevel = 8; // Số vàng cần để qua cấp độ mới
+    private int goldToNextLevel = 2; // Số vàng cần để qua cấp độ mới
+    private int currentLevel = 1;
 
 
     [SerializeField] private Slider goldBarSlider;
@@ -65,11 +66,11 @@ public class DeliveryManager : MonoBehaviour
             }
 
             // Kiểm tra nếu đã đủ vàng để chuyển sang Level 2
-            if (playerGold < goldToNextLevel)
+            if (currentLevel ==1)
             {
                 SpawnRecipesForLevel1();  // Sinh công thức cho Level 1
             }
-            else
+            if (currentLevel==2)
             {
                 SpawnRecipesForLevel2();  // Sinh công thức cho Level 2
             }
@@ -164,22 +165,14 @@ public class DeliveryManager : MonoBehaviour
     {
         // Hiển thị UI để người chơi chọn tiếp tục
         ShowNextLevelUI();
-
+        currentLevel = 2;
+        KitchenGameManager.Instance.ResetGameTimer(336);
         // Thiết lập lại thanh vàng và yêu cầu số vàng cho cấp độ tiếp theo
-        goldToNextLevel = 30;  // Số vàng cần cho cấp độ 3
+        goldToNextLevel = 20;  // Số vàng cần cho cấp độ 3
         playerGold = 0;  // Reset số vàng
         goldBarSlider.maxValue = goldToNextLevel;
         goldBarSlider.value = playerGold;
-
-        // Tăng số lượng công thức tối đa trong Level 2
         waitingRecipeMax = 4;
-
-        // Đảm bảo đủ số lượng công thức cho Level 2
-        while (waitingRecipeSOList.Count < waitingRecipeMax)
-        {
-            RecipeSO waitingRecipeSO = recipeListSO.recipeSOList[UnityEngine.Random.Range(0, recipeListSO.recipeSOList.Count)];
-            waitingRecipeSOList.Add(waitingRecipeSO);
-        }
 
         OnRecipeSpawned?.Invoke(this, EventArgs.Empty);
     }

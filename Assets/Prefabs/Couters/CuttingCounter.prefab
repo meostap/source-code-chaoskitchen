@@ -155,6 +155,18 @@ PrefabInstance:
       propertyPath: hasProgressGameObject
       value: 
       objectReference: {fileID: 1720120478246014897}
+    - target: {fileID: 2718197763216143767, guid: a55d7007eb73b644dbf5a1e6e955ae43, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 2718197763216143767, guid: a55d7007eb73b644dbf5a1e6e955ae43, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 2718197763216143767, guid: a55d7007eb73b644dbf5a1e6e955ae43, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2964098628403781301, guid: a55d7007eb73b644dbf5a1e6e955ae43, type: 3}
       propertyPath: m_Name
       value: ProgressBarUI
@@ -229,7 +241,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4074524484104580117, guid: a55d7007eb73b644dbf5a1e6e955ae43, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 2.5
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4074524484104580117, guid: a55d7007eb73b644dbf5a1e6e955ae43, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -246,6 +258,14 @@ PrefabInstance:
     - target: {fileID: 5290596650535399712, guid: a55d7007eb73b644dbf5a1e6e955ae43, type: 3}
       propertyPath: m_PresetInfoIsWorld
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7695630905672574878, guid: a55d7007eb73b644dbf5a1e6e955ae43, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 7695630905672574878, guid: a55d7007eb73b644dbf5a1e6e955ae43, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0.15
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

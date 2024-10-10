@@ -22,12 +22,13 @@ public class KitchenGameManager : MonoBehaviour
     //private float waitingToStartTimer=1f;
     private float countdownToStartTimer = 3f;
     private float gamePlayingTimer;
-    private float gamePlayingTimerMax = 336f;
+    public float gamePlayingTimerMax = 336f;
     private bool isGamePaused = false;
 
     private void Awake()
     {
         Instance = this;
+        gamePlayingTimer = gamePlayingTimerMax;
         state = State.WaitingToStart;
     }
 
@@ -122,6 +123,11 @@ public class KitchenGameManager : MonoBehaviour
             state = State.CountdownToStart; // Chuyển sang trạng thái đếm ngược
             OnStateChanged?.Invoke(this, EventArgs.Empty); // Gọi sự kiện khi trạng thái thay đổi
         }
+    }
+    public void ResetGameTimer(float newTimerMax) //khai báo trên đây and gán giá trị để có thể thay đổi khi gọi biến
+    {
+        gamePlayingTimerMax = newTimerMax; // Cập nhật giá trị mới
+        gamePlayingTimer = gamePlayingTimerMax;
     }
     public void NextLevelUI()
     {
