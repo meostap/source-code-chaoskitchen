@@ -17,7 +17,6 @@
             public BaseCounter selectedCouter;
         }
 
-
         [SerializeField] public float moveSpeed;
         [SerializeField] private GameInput gameInput;
         [SerializeField] private LayerMask couterLayerMask;

@@ -15,7 +15,7 @@ public class DeliveryManager : MonoBehaviour
     private bool isFirstOrderSpawned = false;
 
     private int playerGold = 0; // Vàng của người chơi
-    private int goldToNextLevel = 2; // Số vàng cần để qua cấp độ mới
+    private int goldToNextLevel = 10; // Số vàng cần để qua cấp độ mới
     private int currentLevel = 1;
 
 
@@ -168,7 +168,7 @@ public class DeliveryManager : MonoBehaviour
         currentLevel = 2;
         KitchenGameManager.Instance.ResetGameTimer(336);
         // Thiết lập lại thanh vàng và yêu cầu số vàng cho cấp độ tiếp theo
-        goldToNextLevel = 20;  // Số vàng cần cho cấp độ 3
+        goldToNextLevel = 30;  // Số vàng cần cho cấp độ 3
         playerGold = 0;  // Reset số vàng
         goldBarSlider.maxValue = goldToNextLevel;
         goldBarSlider.value = playerGold;
